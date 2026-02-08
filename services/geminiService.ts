@@ -15,12 +15,25 @@ export const analyzeContract = async (
   const ai = getAI();
   
   const prompt = `
-    Analyze the following contract. Provide a detailed risk assessment, precise FINANCIAL IMPACT CALCULATOR, a sophisticated 3-TIER NEGOTIATION STRATEGY, and a NEGOTIABILITY SCORE (0-100) for each problematic clause.
+    Analyze the following contract with extreme scrutiny for predatory terms and traps. 
     
-    Additionally, generate:
-    1. A GRANULAR CHANGE SUMMARY for each clause mapping specific phrases to counter-proposals.
-    2. ANONYMIZED SUCCESS STORIES (2 per clause) of similar successful negotiations.
-    3. NEGOTIATION STATISTICS for the clause type (success rate, avg resolution days, common concerns).
+    SPECIFIC TRAPS TO FLAG:
+    - Unlimited free modifications (often found in Article 7)
+    - Asymmetric termination clauses (Article 8) 
+    - Excessive insurance requirements (Article 9)
+    - Unilateral contract modification rights (Article 10)
+    - Waiver of legal rights (Article 10)
+
+    For each detected trap:
+    1. Calculate the direct and indirect FINANCIAL IMPACT/EXPOSURE.
+    2. Assign a NEGOTIABILITY SCORE (0-100).
+    3. Provide a clear, bold "Amended Version".
+
+    URGENCY EVALUATION:
+    If the contract is categorized as 'Predatory' or 'Abusive' (high risk), the "overallRecommendation" MUST start with:
+    "🚨 PRIMARY ADVICE: DO NOT SIGN. This contract is predatory and likely illegal under French law."
+    Followed by:
+    "IMMEDIATE ACTION: 1️⃣ Send decline email 2️⃣ Demand rewrite of Articles 2, 3, 5, 6... 3️⃣ Walk away if refused. ALTERNATIVE: Propose using the SYNTEC model contract."
 
     The JSON must follow this structure:
     {
@@ -44,16 +57,16 @@ export const analyzeContract = async (
               "title": "e.g., Freelance Lease in Paris (Dec 2024)",
               "originalClause": "...",
               "counterProposal": "...",
-              "result": "e.g., Accepted after 1 email exchange",
+              "result": "...",
               "landlordResponse": "...",
               "date": "Month Year"
             }
           ],
           "stats": {
-            "successRate": number (0-100),
+            "successRate": number,
             "avgResolutionDays": number,
-            "commonConcerns": ["Concern 1", "Concern 2"],
-            "winningArguments": ["Argument 1", "Argument 2"]
+            "commonConcerns": ["..."],
+            "winningArguments": ["..."]
           },
           "changeSummary": [
             {
@@ -269,8 +282,8 @@ export const chatWithAssistant = async (
       Rules:
       1. Responses should be concise (2-4 sentences) unless depth is requested.
       2. If asked about rejections, provide concrete 1-2-3 fallback options.
-      3. If asked about legality (especially French Law like ALUR), provide specific article references if possible.
-      4. Always encourage the user to frame changes as 'clarifications' rather than 'demands' to maintain leverage.
+      3. If asked about legality (especially French Law like ALUR, SYNTEC, or Code du Travail), provide specific references.
+      4. Always encourage the user to frame changes as 'clarifications' rather than 'demands'.
       
       RESPONSE FORMAT: You MUST return a JSON object with:
       {

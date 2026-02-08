@@ -94,10 +94,12 @@ const App: React.FC = () => {
     return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(val);
   };
 
+  const isUrgentAdvice = analysis?.overallRecommendation.includes('🚨');
+
   return (
     <div className="min-h-screen pb-20">
       {/* Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-30 print:hidden">
+      <header className="bg-white border-b border-slate-200 sticky top-0 z-40 print:hidden">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200">
@@ -106,11 +108,11 @@ const App: React.FC = () => {
             <span className="text-xl font-black tracking-tight text-slate-800">LEXI<span className="text-indigo-600">NEGOTIATE</span></span>
           </div>
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-slate-900 text-white px-3 py-1 rounded-full border border-slate-800 shadow-sm">
-              <i className="fa-solid fa-wand-magic-sparkles text-indigo-400 text-[10px]"></i>
+            <div className="flex items-center gap-2 bg-slate-900 text-white px-3 py-1.5 rounded-full border border-slate-700 shadow-lg shadow-indigo-100/50">
+              <i className="fa-solid fa-wand-magic-sparkles text-indigo-400 text-[10px] animate-pulse"></i>
               <span className="text-[10px] font-black uppercase tracking-widest">Powered by Gemini 3</span>
             </div>
-            <span className="hidden sm:inline-block text-[10px] font-black uppercase tracking-widest bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full border border-indigo-100">
+            <span className="hidden md:inline-block text-[10px] font-black uppercase tracking-widest bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-full border border-indigo-100">
               Hackathon Edition
             </span>
           </div>
@@ -187,7 +189,7 @@ const App: React.FC = () => {
                 {isAnalyzing ? (
                   <>
                     <i className="fa-solid fa-circle-notch fa-spin"></i>
-                    Analyzing Risks...
+                    Analyzing Traps...
                   </>
                 ) : (
                   <>
@@ -222,15 +224,19 @@ const App: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                  <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Executive Summary</h3>
-                  <p className="text-slate-700 text-sm leading-relaxed font-medium">
-                    {analysis.summary}
+                <div className={`p-6 rounded-2xl border shadow-sm transition-all ${isUrgentAdvice ? 'bg-red-50 border-red-200 ring-2 ring-red-500' : 'bg-white border-slate-200'}`}>
+                  <h3 className={`text-sm font-bold uppercase tracking-widest mb-4 ${isUrgentAdvice ? 'text-red-600' : 'text-slate-400'}`}>
+                    {isUrgentAdvice ? '🚨 Critical Legal Advice' : 'Executive Summary'}
+                  </h3>
+                  <p className={`text-sm leading-relaxed font-medium ${isUrgentAdvice ? 'text-red-900 whitespace-pre-wrap' : 'text-slate-700'}`}>
+                    {analysis.overallRecommendation}
                   </p>
-                  <div className="mt-6 pt-6 border-t border-slate-100">
-                    <h4 className="text-xs font-bold text-indigo-600 uppercase mb-2">Primary Advice</h4>
-                    <p className="text-slate-600 text-sm italic">{analysis.overallRecommendation}</p>
-                  </div>
+                  {!isUrgentAdvice && (
+                    <div className="mt-6 pt-6 border-t border-slate-100">
+                      <h4 className="text-xs font-bold text-indigo-600 uppercase mb-2">Summary</h4>
+                      <p className="text-slate-600 text-sm italic">{analysis.summary}</p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 print:hidden">

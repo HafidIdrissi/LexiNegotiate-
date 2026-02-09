@@ -272,8 +272,8 @@ Developed with ❤️ to empower freelancers worldwide with accessible legal int
 ## 📞 Support
 
 - **Documentation**: This README and inline code comments
-- **Issues**: [GitHub Issues](https://github.com/hafididrissi/lexinegotiate/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/hafididrissi/lexinegotiate/discussions)
+- **Issues**: [GitHub Issues](https://github.com/HafidIdrissi/LexiNegotiate-/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/hafididrissi/lexinegotiate-/discussions)
 
 ---
 
@@ -318,6 +318,6 @@ Developed with ❤️ to empower freelancers worldwide with accessible legal int
 
 **Made with 🤖 Gemini, ⚛️ React, and ❤️ for Freelancers**
 
-[Report Bug](https://github.com/hafididrissi/lexinegotiate/issues) · [Request Feature](https://github.com/hafididrissi/lexinegotiate/issues) · [Documentation](https://github.com/hafididrissi/lexinegotiate/wiki)
+[Report Bug](https://github.com/hafididrissi/lexinegotiate-/issues) · [Request Feature](https://github.com/hafididrissi/lexinegotiate-/issues) · [Documentation](https://github.com/hafididrissi/lexinegotiate-/wiki)
 
 </div>

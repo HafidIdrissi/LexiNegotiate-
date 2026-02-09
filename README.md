@@ -248,7 +248,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 Fullstack DevOps Engineer specializing in Cloud Architecture, AI Integration, and Scalable SaaS.
 
 - GitHub: [@hafididrissi](https://github.com/hafididrissi)
-- LinkedIn: [Hafid Idrissi](https://linkedin.com/in/hafididrissi)
+- LinkedIn: [Hafid Idrissi](https://linkedin.com/in/hafid-idrissi)
 
 ---
 
